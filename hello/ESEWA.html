@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSewa Payment Integration</title>
+    <!-- Include CryptoJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.min.js"></script>
+</head>
+
+<body>
+    <!-- Your eSewa payment form -->
+    <form id="esewaForm" action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+        <!-- Your input fields go here -->
+        <input type="hidden" id="amount" name="amount" value="100" required>
+        <input type="hidden" id="transaction_uuid" name="transaction_uuid" required>
+        <input type="hidden" id="product_code" name="product_code" value="EPAYTEST" required>
+        <input type="hidden" id="tax_amount" name="tax_amount" value="10" required>
+        <input type="hidden" id="total_amount" name="total_amount" value="110" required>
+        <input type="hidden" id="product_service_charge" name="product_service_charge" value="0" required>
+        <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" value="0" required>
+        <input type="hidden" id="success_url" name="success_url"
+            value="http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/hello/esewa_su.php" required>
+        <input type="hidden" id="failure_url" name="failure_url"
+            value="http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/hello/esewa_fu.php" required>
+        <input type="hidden" id="signed_field_names" name="signed_field_names"
+            value="amount,transaction_uuid,product_code,tax_amount,total_amount,product_service_charge,product_delivery_charge,success_url,failure_url">
+        <!-- Signature field -->
+        <input type="hidden" id="signature" name="signature" required>
+
+        <!-- Submit button -->
+        <input value="Submit" type="submit">
+    </form>
+
+    <script>
+        // Function to generate the eSewa signature
+        // Event listener for form submission
+        document.getElementById('esewaForm').addEventListener('submit', function (event) {
+            // Prevent the form from submitting before setting the signature
+            event.preventDefault();
+
+            // Get the values needed for the signature
+            const amount = document.getElementById('amount').value;
+            const transaction_uuid = document.getElementById('transaction_uuid').value;
+            const product_code = document.getElementById('product_code').value;
+
+            // Replace 'your_secret_key' with your actual eSewa secret key
+            const secretKey = '';
+
+            // Generate the eSewa signature
+            const signature = generateESewaSignature(amount, transaction_uuid, product_code, secretKey);
+
+            // Log the generated signature for debugging
+            console.log('Generated Signature:', signature);
+
+            // Set the generated signature in the form
+            document.getElementById('signature').value = signature;
+
+            // Now submit the form
+            this.submit();
+        });
+
+        // Function to generate the eSewa signature
+        function generateESewaSignature(amount, transaction_uuid, product_code, secretKey) {
+            // Your signature generation logic goes here
+            // You can use CryptoJS library for HMAC-SHA256
+            const message = `amount=${amount}&transaction_uuid=${transaction_uuid}&product_code=${product_code}`;
+            const hmac = CryptoJS.HmacSHA256(message, secretKey);
+            const base64 = CryptoJS.enc.Base64.stringify(hmac);
+            return base64;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 900px;
+    width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 0 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 320px;
+}
+
+
+.logo_Com_info{
+   display: flex;
+   flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2px;
+    
+}
+.logo_Com_info h1{
+    font-size: 30px;
+    font-weight: 700;
+    color: orange;
+}
+
+.logo_Com_info img{
+    margin-top: 10px;
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+h1 {
+    color: #4caf50;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+.close_btn {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: -4px;
+    right: -35px;
+    font-size: 20px;
+    color: green;
+    text-decoration: none;
+    cursor: pointer;
+}
+#print_Payment_bill:hover,
+#Go_to_My_Account a:hover,
+.close:hover {
+    color: #ff0000;
+}
+
+ .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding:10px 0;
+} 
+#print_Payment_bill:hover,
+#Go_to_My_Account a:hover {
+    background-color: #009205;
+}
+
+#print_Payment_bill {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#Go_to_My_Account a {
+    background-color: #4CAF50;
+    border-radius:5px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#Go_to_My_Account  {
+background:none;
+    border: none;
+}
+
+@media print {
+
+    #print_Payment_bill,
+    #Go_to_My_Account,
+    .close_btn{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .close_btn {
+        display: none;
+    }
+    
+}

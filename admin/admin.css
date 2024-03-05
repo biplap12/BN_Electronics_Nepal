@@ -1,0 +1,179 @@
+
+.message {
+    position: sticky;
+    top: 0;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    background-color: #e6e3b5;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+.message span {
+    font-size: 1rem;
+    color: red;
+}
+
+.message i {
+    cursor: pointer;
+    color: var(--orange);
+    font-size: 1rem;
+}
+
+.message i:hover {
+    color: var(--orangeDark);
+}
+
+
+
+ .image-container{
+   margin-bottom: 2rem;
+}
+
+ .image-container .main-image img{
+   height: 20rem;
+   width: 100%;
+   object-fit: contain;
+}
+
+ .image-container .sub-image{
+   display: flex;
+   gap:1rem;
+   justify-content: center;
+   margin:1rem 0;
+}
+
+ .image-container .sub-image img{
+   height: 5rem;
+   width: 7rem;
+   object-fit: contain;
+   padding:.5rem;
+   border:var(--border);
+   cursor: pointer;
+   transition: .2s linear;
+}
+
+ .image-container .sub-image img:hover{
+   transform: scale(1.1);
+}
+
+.active_nav {
+  background-color: rgb(19, 159, 247); /* Change this to the desired background color */
+  color: #ffffff; /* Change this to the desired text color */
+  font-weight: bold; /* Optionally, set a bold font weight */
+  border-radius: 5px;
+  
+}
+
+#myImg {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {
+    opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content,
+#caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    margin-right: 250px;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 50px;
+    right: 10%;
+    color: #f1f1f1;
+    font-size: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}

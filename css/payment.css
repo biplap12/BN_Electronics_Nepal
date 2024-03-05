@@ -1,0 +1,179 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.card {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #52cb31;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+#payment-button,
+#esewa,
+#cod_radio {
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Default shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+#payment-button:hover,
+#esewa:hover,
+#cod_radio:hover {
+    background-color: #f4f4f4;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+
+#payment-button img,
+#esewa img,
+#cod_radio img  {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    max-height: 50px;
+}
+
+#cod_radio {
+    position: relative;
+    overflow: hidden;
+}
+
+/* #cod_radio img {
+    max-width: 100%;
+    height: auto;
+    max-height: 30px;
+} */
+
+#cod_radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#additionalFeeMessage {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#extraCharge {
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+
+#Pay_btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+#placeOrder_btn {
+    justify-content: flex-end;
+    background-color: #26ec2d;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#placeOrder_btn:hover {
+    background-color: #1f9d1f;
+}   
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .card {
+        max-width: 100%;
+    }
+    #Pay_btn {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+.form-container {
+    position: relative;
+}
+
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.8); */
+    display: flex;
+    /* justify-content: center; */
+    margin: 100px auto;
+    align-items: center;
+    flex-direction: column;
+    font-size: large;
+    z-index: 1000;
+}
+
+.loading {
+    background: #121FCF;
+    background: -webkit-linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+    background: -moz-linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+    background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size:3vw;
+
+}
+
+.loader {
+    border: 8px solid #007bff;
+    border-top: 8px solid orange;
+    border-radius: 50%;
+    min-width: 3vw; /* Adjust the width relative to the viewport width */
+    max-width: 5vw;
+    min-height: 3vw; 
+    max-height: 5vw; 
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
