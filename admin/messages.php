@@ -22,9 +22,6 @@ if(isset($_GET['delete'])){
 
 
 
-
-
-
 <!-- Content Wrapper. Contains page content -->
 
 <!-- Content Header (Page header) -->
@@ -114,6 +111,8 @@ if(isset($_GET['delete'])){
                             $select_messages = $conn->prepare("SELECT users.name, users.email, messages.id, messages.user_message, messages.msg_pic, messages.date_Time FROM messages INNER JOIN users ON messages.user_id=users.id WHERE messages.admin_id = ? ORDER BY messages.id DESC");
                             $select_messages->execute([$admin_id]);
                         }
+                        
+
 
                         $number_of_messages = $select_messages->rowCount();
 

@@ -47,7 +47,10 @@ if(isset($_POST['add_product'])){
 
    if($select_products->rowCount() > 0){
       $message[] = 'Product name already exist!';
-   }else{
+   }elseif($image_size_01 > 5000000 OR $image_size_02 > 5000000 OR $image_size_03 > 5000000){
+      $message[] = 'Image size is too large!';
+   }
+   else{
 
       $insert_products = $conn->prepare("INSERT INTO `products`(admin_id, p_name, old_price, details, price, image_01, image_02, image_03,p_quantity,category_id) VALUES(?,?,?,?,?,?,?,?,?,?)");
       $insert_products->execute([$admin_id, $name, $old_price, $details, $price, $image_01, $image_02, $image_03,$p_qty,$category]);

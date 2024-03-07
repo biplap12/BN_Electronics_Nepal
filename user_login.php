@@ -90,8 +90,8 @@ $message[] = 'Incorrect username or password!';
             </div>
             <div class="dis_RemP_For">
                 <div>
-                    <input type="checkbox" name="rememberPassword" id="rememberPassword">
-                    <label for="rememberPassword">Remember Password</label>
+                    <!-- <input type="checkbox" name="rememberPassword" id="rememberPassword">
+                    <label for="rememberPassword">Remember Password</label> -->
                 </div>
                 <a class="forgotPassword" href="forgotPassword/forgot-password.php">forgot password ?</a>
             </div>

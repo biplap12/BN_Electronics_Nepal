@@ -96,7 +96,7 @@ if ($user_id) {
             <div class="flex-btn">
                 <a href="user_login.php" class="option-btn">Login</a>
                 <a href="user_register.php" class="option-btn">Register</a>
-                <a href="http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/admin/admin_login.php"
+                <a href="http://localhost/BN_Electronics_Nepal/admin/admin_login.php"
                     target="_blank" rel="noopener noreferrer">.</a>
             </div>
             <?php

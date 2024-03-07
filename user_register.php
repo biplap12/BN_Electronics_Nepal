@@ -23,25 +23,7 @@ if(isset($_POST['submit'])){
    $cpass = sha1($_POST['cpass']);
    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-//    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-//    $select_user->execute([$email,]);
-//    $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
-//    if($select_user->rowCount() > 0){
-//       $message[] = 'Email already exists!';
-//    }else{
-//       if($pass != $cpass){
-//          $message[] = 'Confirm password not matched!';
-//       }else{
-//          $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
-//          $insert_user->execute([$name, $email, $cpass]);
-//          $message[] = 'Registered successfully, Login now please!';
-//       }
-//    }
-
-// }
-
-// ... (your existing code)
 
 $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? OR phone = ?");
 $select_user->execute([$email, $phone]);
@@ -55,7 +37,9 @@ if ($select_user->rowCount() > 0) {
     if(empty($name)||empty($email)||empty($phone)||empty($pass)||empty($cpass)){
         $message[] = 'Please fill all the fields!';
     }
-    // Check if the phone  already exists
+    if($phone < 10){
+        $message[] = 'Phone number should be 10 digits!';
+    }   
     if ($row['phone'] == $phone) {
         $message[] = 'Phone number already exists!';
     }
@@ -122,10 +106,10 @@ if ($select_user->rowCount() > 0) {
         </div>
         <form action="" method="post" id="signupForm">
             <h3>Register now</h3>
-            <input type="text" name="name" required id="name" placeholder="Name" maxlength="20" class="box">
+            <input type="text" name="name" required id="name" placeholder="Name" maxlength="20" min="5" class="box">
             <input type="email" name="email" required id="email" placeholder="Email" maxlength="50" class="box">
-            <input type="tel" name="phone" required id="phone" placeholder="Phone" maxlength="15" class="box">
-            <input type="password" name="pass" required id="pass" placeholder="Password" maxlength="20" class="box">
+            <input type="tel" name="phone" required id="phone" placeholder="Phone" maxlength="15"minlength="10" class="box">
+            <input type="password" name="pass" required id="pass" placeholder="Password" minlength="8" maxlength="20" class="box">
             <input type="password" name="cpass" required id="cpass" placeholder="Confirm password" maxlength="20"
                 class="box">
             <input type="submit" value="Register now" class="btn" name="submit" onclick="showLoaderSignup()">
@@ -147,7 +131,7 @@ if ($select_user->rowCount() > 0) {
         var passValue = document.getElementById("pass").value;
         var passValue1 = document.getElementById("cpass").value;
 
-        if (emailValue === '' || passValue === '' || passValue1 === '' || nameValue === '' || phoneValue === '') {
+        if (emailValue === '' || passValue === '' || passValue1 === '' || nameValue === '' || phoneValue === '' || phoneValue >=10) {
             alert("Please fill all the fields!");
             return false;
         } else {

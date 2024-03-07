@@ -133,15 +133,14 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-
-
-                    </div>
                     <!-- /.col (RIGHT) -->
 
 
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
+                
     </section>
+  
 
     <!-- STACKED BAR CHART -->
 
@@ -453,3 +452,11 @@ try {
         })
     });
     </script>
+   <footer>
+    <div class="float-right d-none d-sm-block">
+    </div>
+    <strong>Copyright &copy; 2014-<?php echo date('Y'); ?> <a href="https:biplapneupane.com.np">BN Electronic Nepal</a>.</strong> All rights
+    reserved.
+</footer>
+
+</body>

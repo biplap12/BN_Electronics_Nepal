@@ -13,34 +13,6 @@ if (isset($_SESSION['user_id'])) {
 }
 
 
-// $select_cart = $conn->prepare("
-//     SELECT cart.quantity, products.id, products.p_name
-//     FROM cart
-//     INNER JOIN products ON cart.pid = products.id
-//     WHERE cart.user_id = ?
-// ");
-// $select_cart->execute([$user_id]);
-
-// $productNames = array();
-
-// while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
-//     $p_name = $fetch_cart['p_name'];
-//     // $pid is now included in the result set
-//     $pid = $fetch_cart['id'];  
-
-//     echo $pid;
-
-//     // Check if the product name is not already in the array
-//     if (!in_array($p_name, $productNames)) {
-//         // If you want to display quantity along with p_name
-//         $productNames[] = "$p_name";
-//     }
-// }
-// sort($productNames);
-
-// $productNamesString = implode(', ', $productNames);
-
-// echo "Product Names: $productNamesString";
 
 $message = array();
 if (isset($_POST['order'])) {
@@ -231,12 +203,12 @@ if (isset($_POST['order'])) {
                 <div class="inputBox">
                     <span>City :</span>
                     <input type="text" value="<?= htmlspecialchars($userCity) ?>" name="city" id="city"
-                        placeholder="e.g. kathmandu" class="box" maxlength="50" required>
+                        placeholder="e.g. kathmandu" class="box" minlength="4" maxlength="50" required>
                 </div>
                 <div class="inputBox">
                     <span>Address :</span>
                     <input type="text" value="<?= htmlspecialchars($userAddress) ?>" name="flat" id="address"
-                        placeholder="e.g.Tole" class="box" maxlength="500" required>
+                        placeholder="e.g.Tole" class="box" minlength="4" maxlength="500" required>
                 </div>
                 <div id="submit-button">
                     <input type="submit" name="order" class="btn placeOrder" value="Place order" id="checkoutForm">

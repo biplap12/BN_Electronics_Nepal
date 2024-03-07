@@ -98,7 +98,7 @@ include 'components/wishlist_cart.php';
         <!-- <div class="swiper-wrapper"> -->
         <div class="category-wrapper">
             <?php
-                $select_products = $conn->prepare("SELECT products.*, product_category.category FROM products JOIN product_category ON products.category_id = product_category.id LIMIT 6");  
+                $select_products = $conn->prepare("SELECT products.*, product_category.category FROM products JOIN product_category ON products.category_id = product_category.id");  
                       $select_products->execute();
                       if($select_products->rowCount() > 0){
                      while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -128,7 +128,7 @@ include 'components/wishlist_cart.php';
             <div class="swiper-wrapper">
 
                 <?php
-                $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6"); 
+                $select_products = $conn->prepare("SELECT * FROM `products` ORDER BY id DESC LIMIT 10"); 
                       $select_products->execute();
                       if($select_products->rowCount() > 0){
                      while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){

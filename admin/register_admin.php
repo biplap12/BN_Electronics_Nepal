@@ -21,7 +21,7 @@ if ($admin == 'super') {
         } else {
             $name = filter_var($name, FILTER_SANITIZE_STRING);
 
-            if (strlen($name) < 6 || strlen($name) > 20) {
+            if (strlen($name) < 5 || strlen($name) > 20) {
                 $message[] = 'Username must be between 6 and 20 characters!';
             }
 
@@ -39,7 +39,15 @@ if ($admin == 'super') {
 
             if ($select_admin->rowCount() > 0) {
                 $message[] = 'Username already exists!';
-            } else {
+            } elseif(
+                $pass != $cpass
+            ){
+                $message[] = 'Confirm password does not match!';
+            }
+            elseif(preg_match('/[@#$%]/', $pass) && preg_match('/[A-Z]/', $pass)){
+                $message[] = 'Password must be Upper case and contain at least one of the special characters (@, #, $, %)!';
+            }
+            else {
                 // Insert new admin
                 $insert_admin = $conn->prepare("INSERT INTO `admins` (name, password) VALUES (?, ?)");
                 $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
@@ -97,7 +105,7 @@ if ($admin == 'super') {
                         <input type="hidden" name="prev_pass" value="<?= $fetch_profile['password']; ?>">
                         <div class="form-group">
                             <label for="username">UserName</label>
-                            <input type="text" name="name" required placeholder="Username" minlength="6" maxlength="20"
+                            <input type="text" name="name" required placeholder="Username" minlength="5" maxlength="20"
                                 class="form-control">
                         </div>
                         <div class="form-group">

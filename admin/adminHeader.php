@@ -187,7 +187,7 @@ $admin = $fetch_admins['admin_status'];
             <a href="index.php" class="brand-link">
                 <img src="../images/bn-electronics-logo.png" alt="BN Logo" class="brand-image img-circle elevation-3"
                     style="opacity: 1" />
-                <span class="brand-text font-weight-light">BN Electronics</span>
+                <span class="brand-text font-weight-light">BN Electronics Nepal</span>
             </a>
             <div class="sidebar">
                 <?php

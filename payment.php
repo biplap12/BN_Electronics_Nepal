@@ -123,7 +123,7 @@ $invoice_no = $fetch_orderName['invoice_no'];
                 <img src="images/khalti_logo.png" alt="Khalti Logo">
             </div>
 
-            <div id="esewa">
+            <!-- <div id="esewa">
                 <img src="images/esewa-logo.png" alt="Esewa Logo">
                 <form action="https://uat.esewa.com.np/epay/main" method="POST" id="esewaForm">
                     <input value="<?php echo $total;?>" name="tAmt" type="hidden">
@@ -133,13 +133,13 @@ $invoice_no = $fetch_orderName['invoice_no'];
                     <input value="0" name="pdc" type="hidden">
                     <input value="epay_payment" name="scd" type="hidden">
                     <input value="<?php echo $invoice_no;?>" name="pid" type="hidden">
-                    <input value="http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/esewa.php"
+                    <input value="http://localhost/BN_Electronics_Nepal/esewa.php"
                         type="hidden" name="su">
-                    <input value="http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/paymentfail.php"
+                    <input value="http://localhost/BN_Electronics_Nepal/paymentfail.php"
                         type="hidden" name="fu">
                     <input type="submit" id="esewa_btn" style="display: none;">
                 </form>
-            </div>
+            </div> -->
 
             <form action="" method="post">
                 <div id="cod_radio">
@@ -243,8 +243,8 @@ foreach ($itemNamesArray as $itemName) {
         "publicKey": "test_public_key_a975b7c5a6a74153b506ecaa539db7fa",
         "productIdentity": productIdentity,
         "productName": productName,
-        "productUrl": "http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/home.php",
-        "return_url": "http://localhost/BN_Electronics_Nepal_Website_khalti_api_integration/success_payment.php?Payment_id=" +
+        "productUrl": "http://localhost/BN_Electronics_Nepal/home.php",
+        "return_url": "http://localhost/BN_Electronics_Nepal/success_payment.php?Payment_id=" +
             productIdentity,
         "paymentPreference": ["KHALTI"],
         "eventHandler": {
@@ -368,7 +368,7 @@ foreach ($itemNamesArray as $itemName) {
     btn.onclick = function() {
         // Minimum transaction amount must be 10, i.e., 1000 in paisa.
         checkout.show({
-            amount: total * 10
+            amount: total * 100
         });
     }
     </script>
