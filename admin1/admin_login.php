@@ -4,7 +4,6 @@ include '../components/connect.php';
 session_start();
 
 if(isset($_POST['submit'])){
-
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $pass = sha1($_POST['pass']);
