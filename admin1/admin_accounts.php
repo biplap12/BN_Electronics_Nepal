@@ -8,6 +8,7 @@ $admin_id = $_SESSION['admin_id'];
 if(!isset($admin_id)){
    header('location:admin_login.php');
 }
+
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_admins = $conn->prepare("DELETE FROM `admins` WHERE id = ?");
